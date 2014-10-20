@@ -1,25 +1,25 @@
-int num = 60;
-float mx[] = new float[num];
+int num = 60;     //this is a variable
+float mx[] = new float[num];     //these are arrays with length 60
 float my[] = new float[num];
 
 void setup() {
-  size(640, 360);
-  noStroke();
-  fill(255, 153); 
+  size(640, 360);     //dewtermines the size of the window
+  noStroke();     //gets rid of the stroke tool, so whole shape is the same color
+  fill(255, 153);      //tells what color the shapes will be
 }
 
-void draw() {
-  background(51); 
+void draw() {     //this is a loop
+  background(51);      //background color
   
   // Cycle through the array, using a different entry on each frame. 
   // Using modulo (%) like this is faster than moving all the values over.
-  int which = frameCount % num;
-  mx[which] = mouseX;
-  my[which] = mouseY;
+  int which = frameCount % num;     //new variable type intager
+  mx[which] = mouseX;     //takes float number in array of (remander of frame/60) and makes it equal to mousex
+  my[which] = mouseY;     //same for mouse y
   
-  for (int i = 0; i < num; i++) {
+  for (int i = 0; i < num; i++) {     //for loop
     // which+1 is the smallest (the oldest in the array)
-    int index = (which+1 + i) % num;
-    ellipse(mx[index], my[index], i, i);
+    int index = (which+1 + i) % num;     //new varable
+    ellipse(mx[index], my[index], i, i);     //creates circle at every value in the array
   }
 }
